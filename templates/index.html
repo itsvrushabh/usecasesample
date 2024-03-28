@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Include HTMX library -->
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+     <style>
+/* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+                        tr:hover {
+            background-color: #f2f2f2;
+        }
+        /* CSS for icon buttons */
+        .action-icons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .action-icons a {
+            margin-right: 5px;
+            color: #333;
+        }
+    </style>
+    <body>
+        <div stype="background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;">
+            <form>
+            <button hx-get="/customer" hx-target="#test1" >For Exiting User</button>
+            <button hx-get="/new/customer" hx-target="#test1">For New User</button>
+            </form>
+        </div>
+        <div>
+        <div id='test1' hx-swap="outerHTML">
+            <h1>No Details</h1>
+        </div>
+        </div>
+    </body>
+</html>
+

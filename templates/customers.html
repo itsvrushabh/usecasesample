@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Include HTMX library -->
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+<style>
+/* styles.css */
+/* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+                        tr:hover {
+            background-color: #f2f2f2;
+        }
+        /* CSS for icon buttons */
+        .action-icons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .action-icons a {
+            margin-right: 5px;
+            color: #333;
+        }
+</style>
+</head>
+<body>
+    <h1>Customer List</h1>
+
+    <div id="customer-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Plan</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through customers and display each one -->
+                {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.id }}</td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.dob }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td id='plans_list{{customer.id}}' hx-swap='outerHTML'>{{ customer.plan }}</td>
+                    <td>{{ customer.planStatus }}</td>
+                    <td class="action-icons">
+                        <!-- Renew action -->
+                        <a href="#" title="Renew" hx-post="/api/customers/{{ customer.id }}/renew_plan">
+                            <i class="fas fa-sync"></i>
+                        </a>
+                        <!-- Update action -->
+                        <a href="#" title="Update" hx-target='#plans_list{{customer.id}}' hx-get="/api/customers/{{ customer.id }}/update_plan">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

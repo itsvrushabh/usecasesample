@@ -1,0 +1,7 @@
+[
+    {"planName": "Diamond365", "planCost": 599, "validity": 365, "planStatus": "Active"},
+    {"planName": "Emerald180", "planCost": 349, "validity": 180, "planStatus": "Active"},
+    {"planName": "Sapphire90", "planCost": 249, "validity": 90, "planStatus": "Inactive"},
+    {"planName": "Ruby30", "planCost": 99, "validity": 30, "planStatus": "Inactive"}
+]
+

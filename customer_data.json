@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Rahul Sharma",
+        "dob": "1990-01-01",
+        "email": "rahul@example.com",
+        "adharNumber": "123456789012",
+        "registrationDate": "2024-03-23",
+        "assignedMobileNumber": "9876543210",
+        "plan": "Diamond365",
+        "planCost": 599,
+        "planValidity": 365,
+        "planStatus": "Active"
+    },
+    {
+        "id": 2,
+        "name": "Priya Patel",
+        "dob": "1985-05-15",
+        "email": "priya@example.com",
+        "adharNumber": "987654321098",
+        "registrationDate": "2024-03-24",
+        "assignedMobileNumber": "8765432109",
+        "plan": "Emerald180",
+        "planCost": 349,
+        "planValidity": 180,
+        "planStatus": "Active"
+    }
+]
+
