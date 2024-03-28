@@ -29,7 +29,7 @@ class CustomerResource(Resource):
         data['registrationDate'] = '2024-03-28'  # Assuming registration date is current date
         data['id'] = len(customers) + 1
         customers.append(data)
-        with open('customers.json', 'w') as f:
+        with open('customer_data.json', 'w') as f:
             json.dump(customers, f, indent=4)
         return jsonify({'message': 'Customer registered successfully'}), 201
 
@@ -58,7 +58,7 @@ class UpdatePlanResource(Resource):
         customer['planCost'] = selected_plan['planCost']
         customer['planValidity'] = selected_plan['validity']
         customer['planStatus'] = selected_plan['planStatus']
-        with open('customers.json', 'w') as f:
+        with open('customer_data.json', 'w') as f:
             json.dump(customers, f, indent=4)
         return jsonify({'message': 'Plan updated successfully'}), 200
 
@@ -96,5 +96,5 @@ api.add_resource(UpdatePlanResource, '/api/customers/<int:customer_id>/update_pl
 api.add_resource(RenewPlanResource, '/api/customers/<int:customer_id>/renew_plan')
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, port="5566", host='0.0.0.0')
 
